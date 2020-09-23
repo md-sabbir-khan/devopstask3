@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: web-claim
+  name: httpd-claim
   labels:
     app: httpd
 spec:
@@ -25,9 +25,9 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi
+      storage: 10Gi
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: httpd
@@ -51,9 +51,9 @@ spec:
         - containerPort: 8080
           name: httpd
         volumeMounts:
-        - name: web-storage
-          mountPath: /usr/local/apache2/htdocs/
+        - name: httpd-storage
+          mountPath: /var/www/html/
       volumes:
-      - name: web-storage
+      - name: httpd-storage
         persistentVolumeClaim:
           claimName: httpd-claim
