@@ -9,7 +9,7 @@ TO = ["reciver-mail"] # must be a list
 
 SUBJECT = "OPERATION TEAM"
 
-TEXT = (" DEPLOYMENT IS Failed")
+TEXT = (" DEPLOYMENT IS SCCESSFULL")
 
 # Prepare actual message
 
